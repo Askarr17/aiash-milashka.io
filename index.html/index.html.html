@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miss Me Sister</title>
+    <style>
+        body {
+            font-family: 'Cursive', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ff99cc, #ff66ff);
+            color: #fff;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        header {
+            padding: 20px;
+            background: rgba(255, 51, 133, 0.8);
+            font-size: 2.5em;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            margin-top: 100px;
+            font-size: 3.5em;
+            animation: fadeIn 3s ease-in-out;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        p {
+            font-size: 1.5em;
+            margin: 20px auto;
+            max-width: 600px;
+            line-height: 1.6;
+            animation: fadeIn 4s ease-in-out;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            background: #ff66cc;
+            border: none;
+            color: #fff;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        button:hover {
+            background: #ff3385;
+            transform: scale(1.1);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+        }
+        footer {
+            margin-top: 50px;
+            padding: 10px;
+            font-size: 1em;
+            animation: fadeIn 5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: pink;
+            opacity: 0.8;
+            transform: rotate(45deg);
+            animation: floatUp 6s infinite ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .heart:before,
+        .heart:after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: pink;
+            border-radius: 50%;
+        }
+        .heart:before {
+            top: -10px;
+            left: 0;
+        }
+        .heart:after {
+            left: 10px;
+            top: 0;
+        }
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(45deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) rotate(45deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Miss Me Aiash?
+    </header>
+    <div class="hearts" id="hearts-container"></div>
+    <h1>Hey, Beautiful!</h1>
+    <p>You light up my world, and every moment away from you feels incomplete. Just wanted to say: *I LOVE YOU.*</p>
+    <button onclick="displayMessage()">♥️</button>
+    <footer>
+        Made with 💖 for someone special
+    </footer>
+    <script>
+        // Heart animation creation
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 4 + 's'; // Between 4-6s
+            document.getElementById('hearts-container').appendChild(heart);
+            setTimeout(() => {
+                heart.remove();
+            }, 6000); // Match animation duration
+        }
+        setInterval(createHeart, 300); // Create a heart every 300ms
+
+        // Button click interaction
+        function displayMessage() {
+            alert('Алматыға түсуіңе тілектеспін ботам! 💕');
+        }
+    </script>
+</body>
+</html>
